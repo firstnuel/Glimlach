@@ -47,13 +47,14 @@ pip install -r requirements.txt
 ```
 4. Customize the "images" section with your desired Docker images and arguments. Ensure you have the correct Docker image names and tags.
 
-Run the Glimlach script with your configuration file as an argument:
+- Run the Glimlach script with your configuration file as an argument:
 
 ```python docker_cli.py docker_config.json```
 
 5. Replace docker_config.json with the name of your configuration file.
 
-Glimlach will execute the Docker images specified in your configuration, passing the provided command-line arguments, and save the output files in the specified output directory.
+- Glimlach will execute the Docker images specified in your configuration, passing the provided command-line arguments, and save the output files in the specified output directory.
 
-License
+### License:
+
 This project is licensed under the MIT License - see the LICENSE file for details.
