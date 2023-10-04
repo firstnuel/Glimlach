@@ -16,7 +16,7 @@ Follow these steps to use Glimlach:
 1. Clone the Glimlach repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/glimlach.git
+   git clone git@github.com:firstnuel/Glimlach.git
    cd glimlach 
 
 2. Install the required Python packages (make sure you have pip installed):
