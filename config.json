@@ -1,0 +1,11 @@
+{
+    "images": [
+        {
+            "id": "nmap",
+            "cli-args": "-oX /Users/ikwunna/Desktop/glimlach/nmapscan.xml 192.168.101.1",
+            "image-name": ["instrumentisto/nmap"],
+            "output-file": "nmapscan.xml"
+        }
+    ],
+    "output-directory": "/Users/ikwunna/Desktop/glimlach/"
+}
