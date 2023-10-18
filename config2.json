@@ -1,0 +1,10 @@
+{
+    "output-directory": "/Users/ikwunna/Desktop/",
+    "images": [
+        {
+            "id": "nmap",
+            "docker-command": ["docker", "run", "-v", "/Users/ikwunna/Desktop/output:/output", "instrumentisto/nmap", "172.20.10.1", "-oN", "/output/nmap_output.txt"]
+        }
+    ]
+        
+}
