@@ -1,6 +1,6 @@
 # Glimlach
 
-Glimlach is a project that allows you to easily run Docker images based on a configuration file. It simplifies the process of specifying Docker images, their command-line arguments, and output file paths.
+Glimach is a Python script that allows you to run Docker containers in parallel based on a JSON configuration file. It is designed to make it easy to automate the execution of Docker images with customizable parameters.
 
 ## Getting Started
 
@@ -28,28 +28,32 @@ pip install -r requirements.txt
 - Create a configuration file in JSON format. The configuration file specifies the Docker images you want to run, their command-line arguments, and output file paths Here's an example configuration file (docker_config.json):
 ```
 {
+    "values": {
+        "ip": "192.168.101.1",
+        "out_dir": "/Users/ikwunna/Desktop/",
+        "web": "https://facebook.com"
+    },
     "images": [
         {
             "id": "nmap",
-            "image-name": ["nmap/nmap"],
-            "cli-args": "-oX" "nmap_output.xml" "192.168.101.1",
-            "output-file": []"nmap_output.xml"
+            "cli-args": ["-v", "<out_dir>output:/output", "instrumentisto/nmap", "<ip>", "-oN", "/output/nmap_output.txt"]
         },
         {
-            "id": "testssl",
-            "image-name": ["drwetter/testssl.sh"],
-            "cli-args": "--jsonfile" "testssl_output.json" "192.168.101.1",
-            "output-file": "testssl_output.json"
+            "id": "nitko",
+            "cli-args": ["-v", "<out_dir>output:/output", "frapsoft/nikto", "-host", "<web>", "-o", "/output/nikto_output.txt"]
         }
-    ],
-    "output-directory": "/path/to/output/directory/"
-}
+    ]
+        
+    }
 ```
-4. Customize the "images" section with your desired Docker images and arguments. Ensure you have the correct Docker image names and tags.
+4. Glimach uses a JSON configuration file to specify the Docker containers and their parameters. Here's a breakdown of the configuration structure:
+
+- "values": Define custom values that replace placeholders in Docker command arguments.
+- "images": Specify the Docker containers you want to run. Each container has an ID, Docker command arguments, and an optional bandwidth limit.
 
 - Run the Glimlach script with your configuration file as an argument:
 
-```python docker_cli.py docker_config.json```
+```python cli.py config.json```
 
 5. Replace docker_config.json with the name of your configuration file.
 
