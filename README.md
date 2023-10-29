@@ -25,7 +25,7 @@ Follow these steps to use Glimlach:
 pip install -r requirements.txt
 ```
 3. Usage
-- Create a configuration file in JSON format. The configuration file specifies the Docker images you want to run, their command-line arguments, and output file paths Here's an example configuration file (docker_config.json):
+- Create a configuration file in JSON format. The configuration file specifies the Docker images you want to run, their command-line arguments, and output file paths Here's an example configuration file (config.json):
 ```
 {
     "values": {
@@ -53,9 +53,9 @@ pip install -r requirements.txt
 
 - Run the Glimlach script with your configuration file as an argument:
 
-```python cli.py config.json```
+```python cli.py config.json``` or ```python3 cli.py config.json```
 
-5. Replace docker_config.json with the name of your configuration file.
+5. Replace **config.json** with the name of your configuration file.
 
 - Glimlach will execute the Docker images specified in your configuration, passing the provided command-line arguments, and save the output files in the specified output directory.
 
