@@ -27,6 +27,9 @@ The Glimlach Docker Image Runner is a Python script (`cli.py`) designed to autom
     pip install -r requirements.txt
     ```
 
+     If you already have Python (>=3.6) and Docker installed, you can skip this step.
+
+
 3. Execute the script:
 
     ```bash
