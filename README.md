@@ -17,8 +17,8 @@ The Glimlach Docker Image Runner is a Python script (`cli.py`) designed to autom
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/glimlach-docker-runner.git
-    cd glimlach-docker-runner
+    git clone https://github.com/firstnuel/Glimlach.git
+    cd Glimlach
     ```
 
 2. Install dependencies:
