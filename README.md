@@ -2,16 +2,10 @@
 
 ## Overview
 
-The Glimlach Docker Image Runner is a Python script (`cli.py`) designed to automate the execution of Docker images based on a provided JSON configuration file. This script is particularly useful for running multiple Docker images with different configurations concurrently.
+The Glimlach Docker Image Runner is a Python script (`cli.py`) designed to automate the execution of Docker images based on a provided JSON configuration file. This script is particularly useful for running multiple Docker images with different configurations concurrently. Read [Documentation](https://github.com/firstnuel/Glimlach/blob/main/Documentation.pdf) for features and detailed scope.
 
-## Features
 
-- **Parallel Execution**: Execute Docker images concurrently, enhancing overall performance.
-- **Configuration File**: Manage Docker images and their configurations using a JSON configuration file.
-- **Placeholder Replacement**: Support dynamic configuration by replacing placeholders in the configuration file with actual values.
-- **Logging**: Provide informative logging at different levels (INFO, ERROR) to track progress and identify issues during execution.
-- **Persistence**: Track completed Docker images to prevent redundant executions.
-
+  
 ## Usage
 
 1. Clone the repository:
