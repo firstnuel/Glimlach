@@ -1,8 +1,8 @@
 {
     "values": {
-        "ip": "192.168.101.1",
-        "out_dir": "/Users/ikwunna/Desktop/",
-        "web": "https://facebook.com"
+        "ip": "123.456.101.1",
+        "out_dir": "/Users/your-username/Desktop/",
+        "web": "https://example.com"
     },
     "images": [
         {
