@@ -101,6 +101,7 @@ Follow these steps to use Glimlach:
         "IP": "<Replace your IP here>",
         "out_dir": "<Path to your output directory>",
         "web": "<URL for the tool input>"
+        "if": "<Replace your port ID here>"
     },
     "images": [
         {
@@ -115,35 +116,19 @@ Follow these steps to use Glimlach:
     }
 ```
 
-Here's an example configuration file (config.json):
-
-```json
-{
-    "values": {
-        "ip": "192.168.101.1",
-        "out_dir": "/Users/ikwunna/Desktop/",
-        "web": "https://facebook.com"
-    },
-    "images": [
-        {
-            "id": "nmap",
-            "cli-args": ["-v", "<out_dir>output:/output", "instrumentisto/nmap", "<ip>", "-oN", "/output/nmap_output.txt"]
-        },
-        {
-            "id": "nitko",
-            "cli-args": ["-v", "<out_dir>output:/output", "frapsoft/nikto", "-host", "<web>", "-o", "/output/nikto_output.txt"]
-        }
-    ]        
-    }
-```
 4. Glimach uses a JSON configuration file to specify the Docker containers and their parameters. Here's a breakdown of the configuration structure:
 
 - "values": Define custom values that replace placeholders in Docker command arguments.
 - "images": Specify the Docker containers you want to run. Each container has an ID, Docker command arguments, and an optional bandwidth limit.
-
 - Run the Glimlach script with your configuration file as an argument:
 
-```python cli.py config.json``` or ```python3 cli.py config.json```
+```py
+python cli.py config.json
+```
+or 
+```py
+python3 cli.py config.json
+```
 
 5. Replace **config.json** with the name of your configuration file.
 
