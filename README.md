@@ -13,13 +13,7 @@ Follow these steps to use Glimlach:
 
 ### Installation
 
-1. Clone the Glimlach repository to your local machine:
-
-   ```bash
-   git clone git@github.com:firstnuel/Glimlach.git
-   cd glimlach 
-
-2. Install the required Python packages (or make sure you have pip installed):
+1. Install the required Python packages (or make sure you have pip installed):
 
 **On Ubuntu OS:**
 
@@ -91,7 +85,13 @@ Follow these steps to use Glimlach:
    pip3 --version
    ```
 
+2. Clone the Glimlach repository to your local machine:
 
+   ```bash
+   git clone git@github.com:firstnuel/Glimlach.git
+   cd glimlach
+   ```
+   
 3. Usage
 - Create a configuration file in JSON format. The configuration file specifies the Docker images you want to run, their command-line arguments, and output file paths. The sample file is attached [here.](config.json)
 
