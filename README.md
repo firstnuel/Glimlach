@@ -125,7 +125,9 @@ Follow these steps to use Glimlach:
    ```py
    python cli.py config.json
    ```
-   or 
+
+  or
+   
    ```py
    python3 cli.py config.json
    ```
