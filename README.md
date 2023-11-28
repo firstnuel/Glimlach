@@ -122,13 +122,13 @@ Follow these steps to use Glimlach:
 - "images": Specify the Docker containers you want to run. Each container has an ID, Docker command arguments, and an optional bandwidth limit.
 - Run the Glimlach script with your configuration file as an argument:
 
-```py
-python cli.py config.json
-```
-or 
-```py
-python3 cli.py config.json
-```
+   ```py
+   python cli.py config.json
+   ```
+   or 
+   ```py
+   python3 cli.py config.json
+   ```
 
 5. Replace **config.json** with the name of your configuration file.
 
