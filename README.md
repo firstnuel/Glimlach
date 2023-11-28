@@ -62,9 +62,62 @@ Follow these steps to use Glimlach:
    pip3 --version
    ```
 
+**On CentOS OS:**
+
+* To update system repositories, open a terminal window and enter the following command:
+
+   ```bash
+   sudo yum update
+   ```
+   This will refresh the local list of available software packages.
+
+* Some newer versions of CentOS 8 include Python 3 by default. If the system already has Python 3 installed, skip this step.
+
+  To install Python 3, open a terminal window and enter the command:
+
+  ```bash
+  sudo yum –y install python3
+  ```
+
+* To install Pip for Python 3 open the terminal window, and enter the following:
+
+  ```bash
+  sudo yum –y install python3-pip
+  ```
+  
+* When the installation is complete, verify the installation by checking the pip version:
+
+   ```bash
+   pip3 --version
+   ```
+
+
 3. Usage
-- Create a configuration file in JSON format. The configuration file specifies the Docker images you want to run, their command-line arguments, and output file paths Here's an example configuration file (config.json):
+- Create a configuration file in JSON format. The configuration file specifies the Docker images you want to run, their command-line arguments, and output file paths. The sample file is attached [here.](config.json)
+
+```json
+{
+    "values": {
+        "IP": "<Replace your IP here>",
+        "out_dir": "<Path to your output directory>",
+        "web": "<URL for the tool input>"
+    },
+    "images": [
+        {
+            "id": "nmap",
+            "cli-args": ["-v", "<out_dir>output:/output", "instrumentisto/nmap", "<ip>", "-oN", "/output/nmap_output.txt"]
+        },
+        {
+            "id": "nitko",
+            "cli-args": ["-v", "<out_dir>output:/output", "frapsoft/nikto", "-host", "<web>", "-o", "/output/nikto_output.txt"]
+        }
+    ]        
+    }
 ```
+
+Here's an example configuration file (config.json):
+
+```json
 {
     "values": {
         "ip": "192.168.101.1",
@@ -80,8 +133,7 @@ Follow these steps to use Glimlach:
             "id": "nitko",
             "cli-args": ["-v", "<out_dir>output:/output", "frapsoft/nikto", "-host", "<web>", "-o", "/output/nikto_output.txt"]
         }
-    ]
-        
+    ]        
     }
 ```
 4. Glimach uses a JSON configuration file to specify the Docker containers and their parameters. Here's a breakdown of the configuration structure:
