@@ -19,11 +19,49 @@ Follow these steps to use Glimlach:
    git clone git@github.com:firstnuel/Glimlach.git
    cd glimlach 
 
-2. Install the required Python packages (make sure you have pip installed):
+2. Install the required Python packages (or make sure you have pip installed):
 
-```bash
-pip install -r requirements.txt
-```
+**On Ubuntu OS:**
+
+* To install pip for Python 3 on Ubuntu 20.04 run the following commands as root or sudo user in your terminal:
+
+   ```bash
+   sudo apt update && sudo apt upgrade
+   ```
+
+* Install the supporting software with the command:
+
+   ```bash
+   sudo apt install software-properties-common
+   ```
+
+   The software-properties-common package gives you better control over your package manager by letting you add PPA (Personal Package Archive) repositories.
+
+* Add the PPA by entering the following:
+
+  ```bash
+  sudo add-apt-repository ppa:deadsnakes/ppa
+  ```
+   Deadsnakes is a PPA with newer releases than the default Ubuntu repositories.
+  
+* Refresh the package lists again:
+
+  ```bash
+  sudo apt update
+  ```
+
+* Install pip for Python 3
+
+  ```bash
+  sudo apt install python3-pip
+  ```
+
+* When the installation is complete, verify the installation by checking the pip version:
+
+   ```bash
+   pip3 --version
+   ```
+
 3. Usage
 - Create a configuration file in JSON format. The configuration file specifies the Docker images you want to run, their command-line arguments, and output file paths Here's an example configuration file (config.json):
 ```
