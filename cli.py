@@ -8,14 +8,14 @@ from multiprocessing import Pool
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-def run_docker_image(image_config, output_directory, completed_images):
+def run_docker_image(image_config, output_directory, failed_images):
     try:
         image_id = image_config.get("id")
 
-        # Check if the image has already been completed
-        if image_id in completed_images:
-            logging.info(f"{image_id} already completed.")
-            return
+        # Check for failed images
+        if len(failed_images) != 0:
+            if image_id not in failed_images:
+                return
 
         cli_args = image_config.get("cli-args",)
 
@@ -28,19 +28,12 @@ def run_docker_image(image_config, output_directory, completed_images):
         # Run the Docker image
         subprocess.run(docker_command, check=True)
 
-        # Move the output file to the specified output directory
-        output_file = docker_command[-1]  # Get the last argument (output file)
-        output_file_path = os.path.join(output_directory, output_file)
-        os.rename(output_file, output_file_path)
-
-        # Mark the image as completed
-        completed_images.add(image_id)
-        with open("completed_images.txt", "a") as completed_file:
-            completed_file.write(f"{image_id}\n")
-
-        logging.info(f"{image_id} completed successfully.")
     except Exception as e:
         logging.error(f"Error running {image_id}: {str(e)}")
+
+        # Mark the image as failed
+        with open("failed_images.txt", "a") as failed_file:
+            failed_file.write(f"{image_id}\n")
 
 # find and replace all placeholders with the values
 def replace_json_placeholders(json_str, values): 
@@ -49,9 +42,6 @@ def replace_json_placeholders(json_str, values):
         json_str = json_str.replace(placeholder, v)
 
     return json_str
-
-def process_image(image_config, output_directory, completed_images):
-    run_docker_image(image_config, output_directory, completed_images)
 
 def main(config_file):
     try:
@@ -66,21 +56,23 @@ def main(config_file):
         config = json.loads(config_string)
 
         images = config.get("images", [])
-        output_directory = config.get("output-directory")
+        output_directory = config['values']['output_directory']
+        print(output_directory)
 
         # Load the list of completed images
-        completed_images = set()
-        if os.path.isfile("completed_images.txt"):
-            with open("completed_images.txt", "r") as completed_file:
-                completed_images = set(completed_file.read().splitlines())
+        failed_images = set()
+        if os.path.isfile("failed_images.txt"):
+            with open("failed_images.txt", "r") as failed_file:
+                failed_images = set(failed_file.read().splitlines())
+            # Clear the failed images file
+            with open("failed_images.txt", "w") as failed_file:
+                pass
 
         # Create a Pool to run Docker images in parallel
         pool = Pool(processes=len(images))
-        pool.starmap(process_image, [(image, output_directory, completed_images) for image in images])
+        pool.starmap(run_docker_image, [(image, output_directory, failed_images) for image in images])
         pool.close()
         pool.join()
-
-        logging.info("All Docker images completed successfully.")
 
     except FileNotFoundError:
         logging.error(f"Config file '{config_file}' not found.")
