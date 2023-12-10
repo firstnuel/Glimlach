@@ -1,4 +1,0 @@
-# requirements.txt
-
-python>=3.6
-docker>=4.4.4
