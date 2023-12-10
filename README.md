@@ -52,10 +52,10 @@ pip install glimlach
 - "images": Specify the Docker containers you want to run. Each container has an ID, Docker command arguments, and an optional bandwidth limit.
 
 
-3. Run the Glimlach script with the  ```run-docker-images ``` your configuration path and file as an argument:
+3. Run the Glimlach script with the  ```glimlach ```  command coupled with your configuration path and file as an argument:
 
    ```
-   run-docker-images path/to/your_config_file.json
+   glimlach path/to/your_config_file.json
    ```
 
  
