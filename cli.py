@@ -8,7 +8,7 @@ from multiprocessing import Pool
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-def run_docker_image(image_config, completed_file_path, completed_images):
+def run_docker_image(image_config, output_directory, completed_images):
     try:
         image_id = image_config.get("id")
 
@@ -30,7 +30,7 @@ def run_docker_image(image_config, completed_file_path, completed_images):
 
         if returncode == 0:
             completed_images.add(image_id)
-            with open(completed_file_path, "a") as completed_file:
+            with open("completed_images.txt", "a") as completed_file:
                 completed_file.write(f"{image_id}\n")
 
     except Exception as e:
@@ -48,7 +48,7 @@ def replace_json_placeholders(json_str, values):
 
     return json_str
 
-def main(config_file):
+def run_docker_images_main(config_file):
     try:
         with open(config_file, "r") as f:
             config = json.load(f)
@@ -64,15 +64,14 @@ def main(config_file):
         output_directory = config['values']['output_directory']
 
         # Load the list of completed images
-        completed_file_path = config['values']['completed_images']
         completed_images = set()
-        if os.path.isfile(completed_file_path):
-            with open(completed_file_path, "r") as completed_file:
+        if os.path.isfile("completed_images.txt"):
+            with open("completed_images.txt", "r") as completed_file:
                 completed_images = set(completed_file.read().splitlines())
 
         # Create a Pool to run Docker images in parallel
         pool = Pool(processes=config['values']['parallel_limit'])
-        pool.starmap(run_docker_image, [(image, completed_file_path, completed_images) for image in images])
+        pool.starmap(run_docker_image, [(image, output_directory, completed_images) for image in images])
         pool.close()
         pool.join()
 
@@ -86,4 +85,4 @@ if __name__ == "__main__":
     parser.add_argument("config_file", help="Path to the JSON configuration file")
 
     args = parser.parse_args()
-    main(args.config_file)
+    run_docker_images_main(args.config_file)
