@@ -4,6 +4,8 @@ Glimlach is a cybersecurity automation tool designed to streamline the execution
 
 The primary objective is to facilitate the execution of various cybersecurity tools as a single scan without the need for individual installations and configurations. Glimlach focuses on the containerized execution (OCI) of tools, allowing for isolation and reproducibility.
 
+Read full Documentation at [Glimlach Documentation](https://firstnuel.github.io/Glimlach/Documentation.html)
+
 ## Getting Started
 
 Follow these steps to use Glimlach:
