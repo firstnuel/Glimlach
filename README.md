@@ -15,86 +15,14 @@ Follow these steps to use Glimlach:
 
 ### Installation
 
-1. Install the required Python packages (or make sure you have pip installed):
+Install Glimlach using pip:
 
-**On Ubuntu OS:**
+```bash
+pip install glimlach
 
-* To install pip for Python 3 on Ubuntu 20.04 run the following commands as root or sudo user in your terminal:
+```
 
-   ```bash
-   sudo apt update && sudo apt upgrade
-   ```
-
-* Install the supporting software with the command:
-
-   ```bash
-   sudo apt install software-properties-common
-   ```
-
-   The software-properties-common package gives you better control over your package manager by letting you add PPA (Personal Package Archive) repositories.
-
-* Add the PPA by entering the following:
-
-  ```bash
-  sudo add-apt-repository ppa:deadsnakes/ppa
-  ```
-   Deadsnakes is a PPA with newer releases than the default Ubuntu repositories.
-  
-* Refresh the package lists again:
-
-  ```bash
-  sudo apt update
-  ```
-
-* Install pip for Python 3
-
-  ```bash
-  sudo apt install python3-pip
-  ```
-
-* When the installation is complete, verify the installation by checking the pip version:
-
-   ```bash
-   pip3 --version
-   ```
-
-**On CentOS OS:**
-
-* To update system repositories, open a terminal window and enter the following command:
-
-   ```bash
-   sudo yum update
-   ```
-   This will refresh the local list of available software packages.
-
-* Some newer versions of CentOS 8 include Python 3 by default. If the system already has Python 3 installed, skip this step.
-
-  To install Python 3, open a terminal window and enter the command:
-
-  ```bash
-  sudo yum –y install python3
-  ```
-
-* To install Pip for Python 3 open the terminal window, and enter the following:
-
-  ```bash
-  sudo yum –y install python3-pip
-  ```
-  
-* When the installation is complete, verify the installation by checking the pip version:
-
-   ```bash
-   pip3 --version
-   ```
-
-2. Clone the Glimlach repository to your local machine:
-
-   ```bash
-   git clone git@github.com:firstnuel/Glimlach.git
-   cd glimlach
-   ```
-   
-3. Usage
+1. Usage
 - Create a configuration file in JSON format. The configuration file specifies the Docker images you want to run, their command-line arguments, and output file paths. The sample file is attached [here.](config.json)
 
 ```json
@@ -118,23 +46,21 @@ Follow these steps to use Glimlach:
     }
 ```
 
-4. Glimach uses a JSON configuration file to specify the Docker containers and their parameters. Here's a breakdown of the configuration structure:
+ Glimach uses a JSON configuration file to specify the Docker containers and their parameters. Here's a breakdown of the configuration structure:
 
 - "values": Define custom values that replace placeholders in Docker command arguments.
 - "images": Specify the Docker containers you want to run. Each container has an ID, Docker command arguments, and an optional bandwidth limit.
-- Run the Glimlach script with your configuration file as an argument:
 
-   ```py
-   python cli.py config.json
+
+3. Run the Glimlach script with the  ```run-docker-images ``` your configuration path and file as an argument:
+
+   ```
+   run-docker-images path/to/your_config_file.json
    ```
 
-  or
-   
-   ```py
-   python3 cli.py config.json
-   ```
+ 
 
-5. Replace **config.json** with the name of your configuration file.
+5. Replace **path/to/your_config_file.json** with the path and name of your configuration file.
 
 - Glimlach will execute the Docker images specified in your configuration, passing the provided command-line arguments, and save the output files in the specified output directory.
 
