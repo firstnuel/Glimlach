@@ -2,7 +2,6 @@
     "values": {
         "parallel_limit": 10,
         "output_directory": "/Users/aj/Desktop/",
-        "completed_images": "/Users/aj/Downloads/completed_images.txt"
     },
     "placeholders": {
         "ip": "64.13.134.52",
