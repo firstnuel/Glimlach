@@ -30,15 +30,29 @@ pip install glimlach
 ```json
 {
     "values": {
+        "parallel_limit": "<Number of tools>",
+        "output_directory": "<Path to your output directory>",
+        "completed_images": "<Path to your directory>/completed_images.txt"
+    },
+
+    "placeholders": {
         "IP": "<Replace your IP here>",
         "out_dir": "<Path to your output directory>",
-        "web": "<URL for the tool input>"
-        "if": "<Replace your port ID here>"
+        "web": "<URL for the tool input>",
+        "if": "<Replace your port ID here>",
+        "nmap": "instrumentisto/nmap",
+        "nikto": "sullo/nikto",
+        "<given image id name>": "<docker image name>"
     },
+
     "images": [
         {
             "id": "nmap",
             "cli-args": ["-v", "<out_dir>output:/output", "instrumentisto/nmap", "<ip>", "-oN", "/output/nmap_output.txt"]
+        },
+        {
+            "id": "nmap2",
+            "cli-args": ["-v", "<output_directory>/output:/output", "<nmap>", "-sX", "-T4", "<ip>", "-oN", "output/nmap_output2.txt"]
         },
         {
             "id": "nitko",
