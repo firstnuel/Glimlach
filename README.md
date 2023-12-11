@@ -32,7 +32,7 @@ pip install glimlach
     "values": {
         "parallel_limit": "<Number of reruns>",
         "output_directory": "<Path to your output directory>",
-        "completed_images": "<Path to your directory>/completed_images.txt"
+
     },
 
     "placeholders": {
