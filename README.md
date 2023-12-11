@@ -30,7 +30,7 @@ pip install glimlach
 ```json
 {
     "values": {
-        "parallel_limit": "<Number of tools>",
+        "parallel_limit": "<Number of reruns>",
         "output_directory": "<Path to your output directory>",
         "completed_images": "<Path to your directory>/completed_images.txt"
     },
@@ -54,10 +54,6 @@ pip install glimlach
             "id": "nmap2",
             "cli-args": ["-v", "<output_directory>/output:/output", "<nmap>", "-sX", "-T4", "<ip>", "-oN", "output/nmap_output2.txt"]
         },
-        {
-            "id": "nitko",
-            "cli-args": ["-v", "<out_dir>output:/output", "frapsoft/nikto", "-host", "<web>", "-o", "/output/nikto_output.txt"]
-        }
     ]        
     }
 ```
