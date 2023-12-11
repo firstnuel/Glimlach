@@ -58,11 +58,14 @@
 
 <h2 id="features">2. Features</h2>
 <ul>
-    <li>Parallel Execution: The script utilizes the multiprocessing module to execute Docker images concurrently, enhancing overall performance.</li>
-    <li>Configuration File: Docker images and their configurations are specified in a JSON configuration file, making it easy to manage and customize the execution process.</li>
-    <li>Placeholder Replacement: The script supports the replacement of placeholders in the configuration file with actual values, allowing for dynamic configuration.</li>
-    <li>Logging: The script provides informative logging at different levels (INFO, ERROR) to track the progress and identify any issues during execution.</li>
-    <li>Persistence: Completed Docker images are tracked in a file (completed_images.txt) to prevent redundant executions.</li>
+    <li><b>Parallel Execution:</b> The script utilizes the multiprocessing module to execute Docker images concurrently, enhancing overall performance.</li>
+    <li><b>Configuration File:</b> Docker images and their configurations are specified in a JSON configuration file, making it easy to manage and customize the execution process.</li>
+    <li><b>Placeholder Replacement:</b> The script supports the replacement of placeholders in the configuration file with actual values, allowing for dynamic configuration.</li>
+    <li><b>Logging:</b> The script provides informative logging at different levels (INFO, ERROR) to track the progress and identify any issues during execution.</li>
+    <li><b>Persistence:</b> Completed Docker images are tracked in a file (completed_images.txt) to prevent redundant executions.</li>
+    <li><b>Centralized Configuration:</b> Configuration for the tools is centralized into a single file or directory, simplifying management and ensuring uniformity in scan parameters. Command-line arguments, output file/directory names, and scan-specific options are defined in this central configuration.</li>
+
+    
 </ul>
 
 
