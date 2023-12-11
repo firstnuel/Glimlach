@@ -62,7 +62,7 @@ Glimlach aims to be user-friendly, allowing researchers and cybersecurity profes
 The tool is available for use on platforms with Python 3 and a Docker or equivalent container client installed.
 Its simplicity and effectiveness make it a valuable asset in automating and enhancing cybersecurity research and assessments.
 
-Read full Documentation at [Glimlach Documentation]https://firstnuel.github.io/Glimlach/Documentation.html)
+Read full Documentation at [Glimlach Documentation](https://firstnuel.github.io/Glimlach/Documentation.html)
 
 ## Getting Started
 
